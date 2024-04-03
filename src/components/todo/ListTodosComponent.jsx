@@ -36,13 +36,18 @@ export default function ListTodosComponent() {
             .catch(error => console.log(error))
     }
     /**
-     * 리스트 데이터 수정
+     * todo 수정 화면으로 이동
      * @param {number} id 
      */
     function updateTodo(id) {
         navigate(`/todo/${id}`)
     }
-
+    /**
+     * todo 추가 화면으로 이동
+     */
+    function addNewTodo() {
+        navigate('/todo/-1')
+    }
     return (
         <div className="container">
             <h1>해야할 일!</h1>
@@ -75,6 +80,7 @@ export default function ListTodosComponent() {
                     </tbody>
                 </table>
             </div>
+            <div className="btn btn-success m-5" onClick={addNewTodo}>할일 추가</div>
         </div>
     )
 }
