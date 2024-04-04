@@ -1,13 +1,5 @@
-import axios from "axios";
+import { apiClient } from "./ApiClient"
 
-/**
- * 기본 url 설정
- */
-const apiClient = axios.create(
-    {
-        baseURL: 'http://localhost:8080'
-    }
-)
 /**
  * user의 todos 검색
  * @param {string} username 

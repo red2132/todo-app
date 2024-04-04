@@ -15,8 +15,8 @@ export default function LoginComponent() {
     /**
      * 로그인 버튼 클릭시 함수
      */
-    const handleSubmit = () => {
-        if(authContext.login(username,password)) {
+    async function handleSubmit() {
+        if(await authContext.login(username, password)) {
             navigate(`/welcome/${username}`) // 해당 유저 welcome 페이지로 이동
         } else {
             setShowErrorMessage(true) // 실패 메시지 출력 여부
@@ -39,19 +39,19 @@ export default function LoginComponent() {
       };
     return (
         <div className="Login">
-            <h1>Time To Login!</h1>
-            {showErrorMessage && <div className='errorMessage'>Authentication Failed. Please check your credentials.</div>}
+            <h1>로그인 하세요!</h1>
+            {showErrorMessage && <div className='errorMessage'>로그인에 실패했습니다. ID와 비밀번호를 확인해 주세요</div>}
             <div className="LoginForm">
                 <div>
-                    <label>User Name</label>
+                    <label>ID</label>
                     <input type="text" name="username" defaultValue={username} onChange={saveUsername}/>
                 </div>
                 <div>
-                    <label>Password</label>
+                    <label>비밀번호</label>
                     <input type="password" name="password" defaultValue={password} onChange={saveUserPw}/>
                 </div>
                 <div>
-                    <button type="button" name="login" onClick={handleSubmit}>login</button>
+                    <button type="button" name="login" onClick={handleSubmit}>로그인</button>
                 </div>
             </div>
         </div>

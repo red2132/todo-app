@@ -11,7 +11,9 @@ export default function ListTodosComponent() {
     const navigate = useNavigate()
 
     //데이터 로드시 todos 데이터 호출
-    useEffect(() => refreshTodos())
+    useEffect(() => 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    refreshTodos(), [])
 
     /**
      * 리스트 데이터 호출
